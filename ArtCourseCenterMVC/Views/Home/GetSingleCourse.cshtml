@@ -1,0 +1,33 @@
+﻿@model ArtCourseCenter.Models.Course
+
+
+
+
+
+<table class="table table-responsive">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Fee</th>
+        <th>Quota</th>
+        <th>Availability</th>
+        <th>Instructor Id</th>
+    </tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td>@Model.Fee</td>
+        <td>@Model.Quota</td>
+        @if (Model.IsAvailable == true)
+        {
+                <td>Available</td>
+        }
+        else
+        {
+                <td>Not Available</td>
+        }
+        <td>@Model.InstructorId</td>
+    </tr>
+</table>
+
+

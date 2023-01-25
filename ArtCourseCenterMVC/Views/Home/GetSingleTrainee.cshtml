@@ -1,0 +1,33 @@
+﻿@model ArtCourseCenter.Models.Trainee
+
+
+
+
+
+<table class="table table-responsive">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Payment Status</th>
+        <th>Register Date</th>
+        <th>Tr Identity Number</th>
+    </tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td>@Model.Age</td>
+        @if (Model.HasPaidTheFee == true)
+        {
+            <td>Paid</td>
+        }
+        else
+        {
+            <td>Not Paid</td>
+        }
+        <td>@Model.RegisterDate</td>
+        <td>@Model.TRIdentityNumber</td>
+    </tr>
+</table>
+
+

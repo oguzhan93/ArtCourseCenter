@@ -5,6 +5,7 @@ using ArtCourseCenter.Models;
 
 namespace ArtCourseCenter.Controllers
 {
+    //You can put "api" at the beginning of the Route address
     [Route("/[controller]/[action]")]
     [ApiController]
     public class ArtCourseCenterController : ControllerBase
@@ -91,7 +92,7 @@ namespace ArtCourseCenter.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpDelete("{Id:int}", Name = "DeleteTrainee")]
-        public async Task<ActionResult<List<Trainee>>> DeleteTreainee(int Id)
+        public async Task<ActionResult<List<Trainee>>> DeleteTrainee(int Id)
         {
             if (Id < 0)
                 return BadRequest();
@@ -169,6 +170,8 @@ namespace ArtCourseCenter.Controllers
             TempInstructor.CourseName = Instructor.CourseName;
             TempInstructor.Name = Instructor.Name;
             TempInstructor.TRIdentityNumber = Instructor.TRIdentityNumber;
+
+            await _context.SaveChangesAsync();
 
             return Ok(await _context.Instructors.ToListAsync());
         }

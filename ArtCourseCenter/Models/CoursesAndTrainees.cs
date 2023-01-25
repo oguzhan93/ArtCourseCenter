@@ -9,7 +9,9 @@ namespace ArtCourseCenter.Models
         public int Id { get; set; }
         [ForeignKey("Course")]
         public int CourseId { get; set; }
+        
         [ForeignKey("Trainee")]
-        public int TraineId { get; set; }
+        public int TraineeId { get; set; }
+        
     }
 }

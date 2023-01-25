@@ -14,7 +14,7 @@ namespace ArtCourseCenter.Models
         public int Quota { get; set; }
         public bool IsAvailable { get; set; }
         [ForeignKey("Instructor")]
-        public int InstructorId { get; set; }
+        public int InstructorId { get; set; } 
     }
 
 
