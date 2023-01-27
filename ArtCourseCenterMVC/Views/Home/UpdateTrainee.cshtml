@@ -1,12 +1,11 @@
 ﻿@model ArtCourseCenter.Models.Trainee
 
 @{
-    ViewData["Title"] = "UpdateTrainee";
+    ViewData["Title"] = "Update Trainee";
 }
 
 <h1>Update Trainee</h1>
 
-<h4>Trainee</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -28,22 +27,18 @@
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="HasPaidTheFee" /> @Html.DisplayNameFor(model => model.HasPaidTheFee)
+                <label class="form-check-label">Payment Status
+                    <input class="form-check-input" asp-for="HasPaidTheFee" /> 
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="RegisterDate" class="control-label"></label>
-                <input asp-for="RegisterDate" class="form-control" />
-                <span asp-validation-for="RegisterDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TRIdentityNumber" class="control-label"></label>
+                <label asp-for="TRIdentityNumber" class="control-label">Tr Identity Number</label>
                 <input asp-for="TRIdentityNumber" class="form-control" />
                 <span asp-validation-for="TRIdentityNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div style="display:flex;">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a class="btn btn-primary" href="../GetAllTrainees"><img src="/css/Images/return.png" height="30" width="30" /> Back to List</a>
             </div>
         </form>
     </div>
@@ -63,10 +58,10 @@
     }
 }
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

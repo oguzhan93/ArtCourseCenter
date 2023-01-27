@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<ArtCourseCenter.Models.Instructor>
 
 @{
-    ViewData["Title"] = "GetAllInstructors";
+    ViewData["Title"] = "Instructors";
 }
 
-<h1>GetAllInstructors</h1>
+<h1>Instructors</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>
@@ -22,38 +19,41 @@
                 @Html.DisplayNameFor(model => model.Salary)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CourseName)
+                Course Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TRIdentityNumber)
+                Tr Identity Number
             </th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salary)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TRIdentityNumber)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TRIdentityNumber)
+                </td>
+                <td><a class="btn btn-warning" href="./UpdateInstructor/@item.Id"><img src="/css/Images/pencil.png" height="30" width="30"/> Edit</a></td>
+                <td><a class="btn btn-danger" href="./DeleteInstructor/@item.Id"><img src="/css/Images/delete.png" height="30" width="30" /> Delete</a></td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<p>
+    <a class="btn btn-success" href="./RegisterNewInstructor"><img src="/css/Images/tick.png" height="30" width="30" /> Add New Instructor</a>
+</p>

@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<ArtCourseCenter.Models.Trainee>
 
 @{
-    ViewData["Title"] = "GetAllTrainees";
+    ViewData["Title"] = "Trainees";
 }
 
-<h1>Get All Trainees</h1>
+<h1>Trainees</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>
@@ -22,15 +20,16 @@
                 @Html.DisplayNameFor(model => model.Age)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HasPaidTheFee)
+                Payment Status
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RegisterDate)
+                Registration Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TRIdentityNumber)
+                Tr Identity Number
             </th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -47,21 +46,27 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Age)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HasPaidTheFee)
-                </td>
+                @if (@item.HasPaidTheFee)
+                {
+                    <td>Paid</td>
+                }
+                else
+                {
+                    <td>Not Paid</td>
+                }
                 <td>
                     @Html.DisplayFor(modelItem => item.RegisterDate)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TRIdentityNumber)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
+                <td><a class="btn btn-warning" href="./UpdateTrainee/@item.Id"><img src="~/css/Images/pencil.png" height="30" width="30"/> Edit</a></td>
+                <td><a class="btn btn-danger" href="./DeleteTrainee/@item.Id"><img src="~/css/Images/delete.png" height="30" width="30"/> Delete</a></td>
             </tr>
         }
     </tbody>
 </table>
+<p>
+    <a class="btn btn-success" href="./RegisterNewTrainee"><img src="/css/Images/tick.png" height="30" width="30"/> Add New Trainee</a>
+</p>
+

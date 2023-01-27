@@ -12,8 +12,18 @@ namespace ArtCourseCenterMVC.Controllers
     {
         //Trainee
         public string BaseUrl = "https://localhost:44393/ArtCourseCenter/";
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult TraineeOperations()
+        {
+            return View();
+        }
         public async Task<IActionResult> GetAllTrainees()
         {
+
             List<ArtCourseCenter.Models.Trainee> _trainees = new List<ArtCourseCenter.Models.Trainee>();
             using (var client = new HttpClient())
             {
@@ -21,7 +31,6 @@ namespace ArtCourseCenterMVC.Controllers
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage responseMessage = await client.GetAsync("GetAllTrainees");
-
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     var result = responseMessage.Content.ReadAsStringAsync().Result;
@@ -171,7 +180,7 @@ namespace ArtCourseCenterMVC.Controllers
                     }
                 }
             }
-            return View("GetAllTrainees");
+            return View("Index");
         }
 
         // Instructor

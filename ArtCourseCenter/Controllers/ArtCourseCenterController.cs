@@ -55,6 +55,7 @@ namespace ArtCourseCenter.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Trainee>>> AddNewTrainee(Trainee Trainee)
         {
+            Trainee.RegisterDate = DateTime.Now;
             _context.Trainees.Add(Trainee);
             await _context.SaveChangesAsync();
             return Ok(await _context.Trainees.ToListAsync());
@@ -75,7 +76,6 @@ namespace ArtCourseCenter.Controllers
             if (TempTrainee == null)
                 return NotFound("The Trainee does not exist!");
 
-            TempTrainee.RegisterDate = Trainee.RegisterDate;
             TempTrainee.Age = Trainee.Age;
             TempTrainee.Name = Trainee.Name;
             TempTrainee.HasPaidTheFee = Trainee.HasPaidTheFee;
@@ -261,6 +261,7 @@ namespace ArtCourseCenter.Controllers
             TempCourse.Quota = Course.Quota;
             TempCourse.Fee = Course.Fee;
             TempCourse.IsAvailable = Course.IsAvailable;
+            TempCourse.InstructorId = Course.InstructorId;
 
             await _context.SaveChangesAsync();
 
@@ -344,7 +345,7 @@ namespace ArtCourseCenter.Controllers
             if (TempCoursesAndTrainees == null)
                 return NotFound("The Course does not exist!");
 
-            TempCoursesAndTrainees.TraineId = CoursesAndTrainees.TraineId;
+            TempCoursesAndTrainees.TraineeId = CoursesAndTrainees.TraineeId;
             TempCoursesAndTrainees.CourseId = CoursesAndTrainees.CourseId;
            
 

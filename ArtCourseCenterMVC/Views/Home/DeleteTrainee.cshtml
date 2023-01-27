@@ -7,50 +7,77 @@
 <h1>Delete Trainee</h1>
 
 <div>
-    <h4>Trainee</h4>
+
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HasPaidTheFee)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HasPaidTheFee)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegisterDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TRIdentityNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TRIdentityNumber)
-        </dd>
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                Payment Status
+            </dt>
+            @if (Model.HasPaidTheFee)
+            {
+                <dd class="col-sm-10">
+                    Paid
+                </dd>
+            }
+            else
+            {
+                <dd class="col-sm-10">
+                    Not Paid
+                </dd>
+            }
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                Registration Date
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RegisterDate)
+            </dd>
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                Tr Identity Number
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TRIdentityNumber)
+            </dd>
+        </div>
+        <hr />
     </dl>
-    
-    <form asp-action="DeleteTrainee" asp-route-id = "@Model.Id">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+
+    <form style="display:flex" asp-action="DeleteTrainee" asp-route-id="@Model.Id">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-primary" href="../GetAllTrainees"><img src="/css/Images/return.png" height="30" width="30" /> Back to List</a>
     </form>
 </div>
 

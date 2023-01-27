@@ -63,7 +63,7 @@ namespace ArtCourseCenter.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TraineId")
+                    b.Property<int>("TraineeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

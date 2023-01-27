@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="display:flex; justify-content:space-around; height:570px;">
+    <div style="display:grid; text-align:center;">
+        <h4>Trainee Operations</h4>
+        <form>
+            <button class="btn btn-danger" asp-action="GetAllTrainees"><img src="css/Images/trainee.png" width="400" height="530" /></button>
+        </form>
+    </div>
+    <div style="display:grid; text-align:center;">
+        <h4>Instructor Operations</h4>
+        <form>
+            <button class="btn btn-primary" asp-action="GetAllInstructors"><img src="css/Images/Instructor.png" width="400" height="530" /></button>
+
+        </form>
+    </div>
+    <div style="display:grid; text-align:center;">
+        <h4>Course Operations</h4>
+        <form>
+            <button class="btn btn-warning" asp-action="GetAllCourses"><img src="css/Images/course.png" width="400" height="530" /></button>
+
+        </form>
+    </div>
+
+
+</div>

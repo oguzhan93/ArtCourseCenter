@@ -8,44 +8,59 @@
 
 
 <div>
-    <h4>Instructor</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Salary)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Salary)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CourseName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CourseName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TRIdentityNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TRIdentityNumber)
-        </dd>
+    <dl style="display:grid">
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                Course Name
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CourseName)
+            </dd>
+        </div>
+        <hr />
+        <div style="display:flex">
+            <dt class="col-sm-2">
+                Tr Identity Number
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TRIdentityNumber)
+            </dd>
+        </div>
+        <hr />
     </dl>
-    
-    <form asp-action="DeleteInstructor" asp-route-id="@Model.Id">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+
+    <form style="display:flex" asp-action="DeleteInstructor" asp-route-id="@Model.Id">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-primary" href="../GetAllInstructors"><img src="/css/Images/return.png" height="30" width="30" /> Back to List</a>
     </form>
 </div>
 

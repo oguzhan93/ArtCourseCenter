@@ -4,9 +4,8 @@
     ViewData["Title"] = "UpdateInstructor";
 }
 
-<h1>UpdateInstructor</h1>
+<h1>Update Instructor</h1>
 
-<h4>Instructor</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -28,17 +27,18 @@
                 <span asp-validation-for="Salary" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CourseName" class="control-label"></label>
+                <label asp-for="CourseName" class="control-label">Course Name</label>
                 <input asp-for="CourseName" class="form-control" />
                 <span asp-validation-for="CourseName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TRIdentityNumber" class="control-label"></label>
+                <label asp-for="TRIdentityNumber" class="control-label">Tr Identity Number</label>
                 <input asp-for="TRIdentityNumber" class="form-control" />
                 <span asp-validation-for="TRIdentityNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div style="display:flex">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a class="btn btn-primary" href="../GetAllInstructors"><img src="/css/Images/return.png" height="30" width="30" /> Back to List</a>
             </div>
         </form>
     </div>
@@ -58,10 +58,10 @@
     }
 }
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

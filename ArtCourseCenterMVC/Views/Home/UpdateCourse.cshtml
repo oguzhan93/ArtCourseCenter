@@ -33,18 +33,20 @@
                 <span asp-validation-for="Quota" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsAvailable" /> @Html.DisplayNameFor(model => model.IsAvailable)
+                <label class="form-check-label">Availability
+                    <input class="form-check-input" asp-for="IsAvailable" /> 
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="InstructorId" class="control-label"></label>
+                <label asp-for="InstructorId" class="control-label">Instructor Id</label>
                 <input asp-for="InstructorId" class="form-control" />
                 <span asp-validation-for="InstructorId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div style="display:flex">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a class="btn btn-primary" href="../GetAllCourses"><img src="/css/Images/return.png" height="30" width="30" /> Back to List</a>
             </div>
+
         </form>
     </div>
 </div>
@@ -63,10 +65,10 @@
     }
 }
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

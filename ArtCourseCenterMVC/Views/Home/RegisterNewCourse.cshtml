@@ -1,10 +1,10 @@
 ﻿@model ArtCourseCenter.Models.Course
 
 @{
-    ViewData["Title"] = "RegisterNewCourse";
+    ViewData["Title"] = "Add New Course";
 }
 
-<h1>Register New Course</h1>
+<h1>Add New Course</h1>
 
 <hr />
 <div class="row">
@@ -36,8 +36,14 @@
                 <input asp-for="InstructorId" class="form-control" />
                 <span asp-validation-for="InstructorId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div style="display:flex;">
+                <div style="display:grid; width:200px">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                    <a class="btn btn-primary" href="./GetAllCourses">Back to List</a>
+                </div>
+                <div>
+                </div>
+
             </div>
         </form>
     </div>
@@ -58,10 +64,10 @@
 }
 
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="display:flex; justify-content:space-around; align-content:start" >
+    <form>
+        <button class="btn btn-primary" asp-action="GetAllTrainees">Get All Trainees</button>
+    </form>
+    <form>
+        <button class="btn btn-primary" asp-action="GetSingleTrainee">Get Trainee By Id</button>
+    </form>
+
+    <form>
+        <button class="btn btn-info" asp-action="RegisterNewTrainee">Register New Trainee</button>
+    </form>
+    <form>
+        <button class="btn btn-group" asp-action="DeleteTrainee">Delete A Trainee</button>
+    </form>
+    
+</div>

@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<ArtCourseCenter.Models.Course>
 
+
 @{
-    ViewData["Title"] = "GetAllCourses";
+    ViewData["Title"] = "Courses";
 }
 
-<h1>Get All Courses</h1>
+<h1>Courses</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>
@@ -25,41 +24,51 @@
                 @Html.DisplayNameFor(model => model.Quota)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsAvailable)
+                Availability
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.InstructorId)
+                Instrucor Id
             </th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quota)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAvailable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InstructorId)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quota)
+                </td>
+
+
+                @if (@item.IsAvailable)
+                {
+                    <td>Available</td>
+                }
+                else
+                {
+                    <td>Not Available</td>
+                }
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.InstructorId)
+                </td>
+                <td><a class="btn btn-warning" href="./UpdateCourse/@item.Id"><img src="/css/Images/pencil.png" height="30" width="30" /> Edit</a></td>
+                <td><a class="btn btn-danger" href="./DeleteCourse/@item.Id"><img src="/css/Images/delete.png" height="30" width="30" /> Delete</a></td>
+            </tr>
+        }
     </tbody>
 </table>
+<p>
+    <a class="btn btn-success" href="./RegisterNewCourse"><img src="/css/Images/tick.png" height="30" width="30" /> Add New Course</a>
+</p>

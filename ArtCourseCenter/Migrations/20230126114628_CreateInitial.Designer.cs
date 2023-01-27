@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtCourseCenter.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230123133212_Initial")]
-    partial class Initial
+    [Migration("20230126114628_CreateInitial")]
+    partial class CreateInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,7 +66,7 @@ namespace ArtCourseCenter.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TraineId")
+                    b.Property<int>("TraineeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

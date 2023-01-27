@@ -1,10 +1,10 @@
 ﻿@model ArtCourseCenter.Models.Trainee
 
 @{
-    ViewData["Title"] = "RegisterNewTrainee";
+    ViewData["Title"] = "Add New Trainee";
 }
 
-<h1>Register New Trainee</h1>
+<h1>Add New Trainee</h1>
 
 
 <hr />
@@ -28,17 +28,19 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="RegisterDate" class="control-label"></label>
-                <input asp-for="RegisterDate" class="form-control" />
-                <span asp-validation-for="RegisterDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="TRIdentityNumber" class="control-label"></label>
                 <input asp-for="TRIdentityNumber" class="form-control" />
                 <span asp-validation-for="TRIdentityNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div style="display:flex;" >
+                <div style="display:grid; width:200px">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                    <a class="btn btn-primary" href="./GetAllTrainees">Back to List</a>
+                </div>
+                <div>
+
+                </div>
+                
             </div>
         </form>
     </div>
@@ -58,9 +60,6 @@
     }
 }
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
